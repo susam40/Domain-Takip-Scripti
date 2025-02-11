@@ -1,7 +1,7 @@
 <?php
 session_start();
 $host = "localhost";
-$veritabani_ismi = "kursayarlar";
+$veritabani_ismi = "domaintakip";
 $kullanici_adi = "root";
 $sifre = "";
 

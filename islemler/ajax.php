@@ -43,6 +43,8 @@ if (isset($_POST['ayarkaydet'])) {
     exit;
 
 }
+//**************************************************************************************************
+
 if (isset($_POST['oturumacma'])) {
     $sorgu = $db->prepare("SELECT * FROM kullanicilar WHERE kul_mail=:kul_mail AND kul_sifre=:kul_sifre");
     $sorgu->execute(array(
@@ -64,6 +66,7 @@ if (isset($_POST['oturumacma'])) {
     }
     exit;
 }
+// **************************************************************************************************
 
 if (isset($_POST['profilkaydet'])) {
     $sorgu = $db->prepare("UPDATE kullanicilar SET
@@ -95,6 +98,29 @@ if (isset($_POST['profilkaydet'])) {
     }
 
 }
+// **************************************************************************************************
+if (isset($_POST['musteriekle'])) {
+    $sorgu = $db->prepare("INSERT INTO musteri SET
+        musteri_isim = :musteri_isim,
+        musteri_mail = :musteri_mail,
+        musteri_telefon = :musteri_telefon,
+        musteri_detay = :musteri_detay
+    ");
+
+    $sonuc = $sorgu->execute(array(
+        'musteri_isim' => $_POST['musteri_isim'],
+        'musteri_mail' => $_POST['musteri_mail'],
+        'musteri_telefon' => $_POST['musteri_telefon'],
+        'musteri_detay' => $_POST['musteri_detay']
+    ));
+
+    if ($sonuc) {
+        header("location:../musteriler.php?durum=success");
+    } else {
+        header("location:../musteriler.php?durum=error");
+    }
+}
+
 
 
 ?>
