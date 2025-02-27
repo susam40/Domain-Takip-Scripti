@@ -30,7 +30,8 @@
                                 <td>
                                     <div class="row justify-content-center">
                                         <form action="musteriduzenle.php" method="POST" accept-charset="utf-8">
-                                            <input type="hidden" name="musteri_id">
+                                            <input type="hidden" name="musteri_id"
+                                                value="<?php echo $musteribilgisi['musteri_id'] ?>">
                                             <button type="submit" name="duzenleme"
                                                 class="btn btn-success btn-sm btn-icon-split">
                                                 <span class="icon text-white-60">
@@ -38,7 +39,8 @@
                                                 </span></button>
                                         </form>
                                         <form class="mx-2" action="islemler/ajax.php" method="POST" accept-charset="utf-8">
-                                            <input type="hidden" name="musteri_id">
+                                            <input type="hidden" name="musteri_id"
+                                                value="<?php echo $musteribilgisi['musteri_id'] ?>">
                                             <button type="submit" name="duzenleme"
                                                 class="btn btn-danger btn-sm btn-icon-split">
                                                 <span class="icon text-white-60">
@@ -46,7 +48,8 @@
                                                 </span></button>
                                         </form>
                                         <form action="musteri.php" method="POST" accept-charset="utf-8">
-                                            <input type="hidden" name="musteri_id">
+                                            <input type="hidden" name="musteri_id"
+                                                value="<?php echo $musteribilgisi['musteri_id'] ?>">
                                             <button type="submit" name="duzenleme"
                                                 class="btn btn-primary btn-sm btn-icon-split">
                                                 <span class="icon text-white-60">

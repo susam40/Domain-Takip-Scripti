@@ -96,6 +96,7 @@ if (isset($_POST['profilkaydet'])) {
     } else {
         header("location:../profil.php?durum=error");
     }
+    exit;
 
 }
 // **************************************************************************************************
@@ -107,18 +108,43 @@ if (isset($_POST['musteriekle'])) {
         musteri_detay = :musteri_detay
     ");
 
-    $sonuc = $sorgu->execute(array(
+    $ekleme = $sorgu->execute(array(
         'musteri_isim' => $_POST['musteri_isim'],
         'musteri_mail' => $_POST['musteri_mail'],
         'musteri_telefon' => $_POST['musteri_telefon'],
         'musteri_detay' => $_POST['musteri_detay']
     ));
 
-    if ($sonuc) {
+    if ($ekleme) {
         header("location:../musteriler.php?durum=success");
     } else {
         header("location:../musteriler.php?durum=error");
     }
+    exit;
+}
+// **************************************************************************************************
+if (isset($_POST['musteriguncelle'])) {
+    $sorgu = $db->prepare("UPDATE musteri SET
+        musteri_isim = :musteri_isim,
+        musteri_mail = :musteri_mail,
+        musteri_telefon = :musteri_telefon,
+        musteri_detay = :musteri_detay WHERE musteri_id=:musteri_id
+    ");
+
+    $ekleme = $sorgu->execute(array(
+        'musteri_isim' => $_POST['musteri_isim'],
+        'musteri_mail' => $_POST['musteri_mail'],
+        'musteri_telefon' => $_POST['musteri_telefon'],
+        'musteri_detay' => $_POST['musteri_detay'],
+        'musteri_id' => $_POST['musteri_id']
+    ));
+
+    if ($ekleme) {
+        header("location:../musteriler.php?durum=success");
+    } else {
+        header("location:../musteriler.php?durum=error");
+    }
+    exit;
 }
 
 
