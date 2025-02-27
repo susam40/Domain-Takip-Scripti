@@ -14,6 +14,7 @@ oturumkontrol();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title><?php echo $ayarcek['site_baslik']; ?></title>
     <link rel="shortcut icon" type="image/png" href="dosyalar/<?php echo $ayarcek['site_logo']; ?>">
+    <script src="vendor/jquery/jquery.min.js"></script>
     <!-- icon eklenir -->
 
     <!-- Custom fonts for this template-->

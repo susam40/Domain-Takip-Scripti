@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<link rel="stylesheet" type="text/css" href="vendor/datatables/dataTables.bootstrap4.min.css">
 <div class="container">
     <div class="card">
         <div class="card-header">
@@ -6,7 +7,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered">
+                <table class="table table-bordered" id="musteritablosu">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -70,3 +71,8 @@
 
 
 <?php include 'footer.php'; ?>
+<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script>
+    $("#musteritablosu").DataTable()
+</script>
