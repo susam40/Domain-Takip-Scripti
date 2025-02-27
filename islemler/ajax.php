@@ -146,7 +146,19 @@ if (isset($_POST['musteriguncelle'])) {
     }
     exit;
 }
-
+// **************************************************************************************************
+if (isset($_POST['musterisilme'])) {
+    $sorgu = $db->prepare("DELETE FROM musteri WHERE musteri_id=:musteri_id");
+    $sonuc = $sorgu->execute(array(
+        'musteri_id' => $_POST['musteri_id']
+    ));
+}
+if ($sonuc) {
+    header("location:../musteriler.php?durum=success");
+} else {
+    header("location:../musteriler.php?durum=error");
+}
+exit;
 
 
 ?>

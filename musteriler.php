@@ -18,12 +18,12 @@
                     </thead>
                     <tbody>
                         <?php
-                        $sayi = 0;
+                        $sayi = 1;
                         $sorgu = $db->prepare("SELECT * FROM musteri");
                         $sorgu->execute();
                         while ($musteribilgisi = $sorgu->fetch(PDO::FETCH_ASSOC)) { ?>
                             <tr>
-                                <td><?php echo $sayi; ?></td>
+                                <td><?php echo $sayi++; ?></td>
                                 <td><?php echo $musteribilgisi['musteri_isim']; ?></td>
                                 <td><?php echo $musteribilgisi['musteri_mail']; ?></td>
                                 <td><?php echo $musteribilgisi['musteri_telefon']; ?></td>
@@ -41,7 +41,7 @@
                                         <form class="mx-2" action="islemler/ajax.php" method="POST" accept-charset="utf-8">
                                             <input type="hidden" name="musteri_id"
                                                 value="<?php echo $musteribilgisi['musteri_id'] ?>">
-                                            <button type="submit" name="duzenleme"
+                                            <button type="submit" name="musterisilme"
                                                 class="btn btn-danger btn-sm btn-icon-split">
                                                 <span class="icon text-white-60">
                                                     <i class="fas fa-trash"></i>
@@ -60,29 +60,6 @@
                                 </td>
                             </tr>
                         <?php } ?>
-
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
